@@ -1,0 +1,21 @@
+{
+  "name": "transicoes-e-transformacoes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "sass --no-error-css --style=compressed src/theme.scss:dist/style.min.css",
+    "dev": "sass --watch --color src/theme.scss:dist/style.css"
+  },
+  "keywords": [
+    "transições",
+    "transformações",
+    "animações",
+    "pseudo-class"
+  ],
+  "author": "Willian Sant Anna",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.57.1"
+  }
+}

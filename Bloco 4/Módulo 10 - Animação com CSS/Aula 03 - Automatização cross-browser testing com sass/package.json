@@ -1,0 +1,15 @@
+{
+  "name": "sass",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "sass --no-error-css --style=compressed src/theme.scss:dist/style.min.css"
+  },
+  "keywords": ["sass"],
+  "author": "Willian Sant Anna",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.57.1"
+  }
+}

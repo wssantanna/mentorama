@@ -1,0 +1,59 @@
+// Variables spin
+$spindefault: rotate(0deg);
+$spinright: rotate(135deg);
+$spinleft: rotate(-135deg);
+$duration: .25s;
+$type: ease-in-out;
+
+// Mixin to position the menu bar
+@mixin dash-burguer-menu () {
+  @for $i from 1 through 3 {
+    &--dash:nth-child(#{$i}) {
+      top: #{$i*11}px;
+      position: relative;
+    }
+  }
+}
+
+@mixin open-burguer-menu () {
+  &--dash:nth-child(1) {
+    top: 24px;
+    transform: $spinright;
+  }
+    
+  &--dash:nth-child(2) {
+    left: -30px;
+    opacity: 0;
+  }
+  
+  &--dash:nth-child(3) {
+    top: 20px;
+    transform: $spinleft;
+  }
+}
+
+.burguer-menu {
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  cursor: pointer;
+  transition: $duration * 2 $type;
+  @include dash-burguer-menu();
+   
+  &--dash {
+    height: 2px;
+    width: 100%;
+    display: block;
+    background: black;
+    transition: $duration $type;
+    transform: $spindefault;
+    opacity: 1;
+    left: 0;
+    transform: $spindefault;
+    transition: $duration $type;
+  }
+  
+  .open &{
+    @include open-burguer-menu();
+  }
+}
