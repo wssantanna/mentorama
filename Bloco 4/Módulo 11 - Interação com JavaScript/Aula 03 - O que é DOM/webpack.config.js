@@ -1,5 +1,6 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlExtractPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: './src/authenticate.js',
@@ -9,9 +10,10 @@ module.exports = {
     },
 
     plugins: [
-        new HtmlWebpackPlugin({
+        new HtmlExtractPlugin({
             template: './public/index.html',
-        })
+        }),
+        new MiniCssExtractPlugin(),
     ],
     module: {
         rules: [
@@ -28,6 +30,10 @@ module.exports = {
             {
                 test: /\.html$/,
                 loader: 'html-loader'
+            },
+            {
+                test: /\.(s(a|c)ss)$/,
+                use: [MiniCssExtractPlugin.loader,'css-loader', 'sass-loader']
             },
         ]
     }

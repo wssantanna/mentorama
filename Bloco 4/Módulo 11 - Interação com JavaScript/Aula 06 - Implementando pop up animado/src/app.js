@@ -1,2 +1,2 @@
 
-const popup = require('./components/popup/popup');
+const popup = require('./components/popup');
