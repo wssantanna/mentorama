@@ -1,8 +1,9 @@
 const path = require('path');
 const HtmlExtractPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-    entry: './src/authenticate.js',
+    entry: './src/app.js',
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, 'dist')
@@ -11,7 +12,8 @@ module.exports = {
     plugins: [
         new HtmlExtractPlugin({
             template: './public/index.html',
-        })
+        }),
+        new MiniCssExtractPlugin(),
     ],
     module: {
         rules: [
@@ -28,6 +30,10 @@ module.exports = {
             {
                 test: /\.html$/,
                 loader: 'html-loader'
+            },
+            {
+                test: /\.(s(a|c)ss)$/,
+                use: [MiniCssExtractPlugin.loader,'css-loader', 'sass-loader']
             },
         ]
     }
